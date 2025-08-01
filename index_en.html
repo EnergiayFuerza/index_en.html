@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Energy and Strength</title>
+  <style>
+    :root {
+      --fondo: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      --texto: white;
+      --descripcion: #dddddd;
+      --fondo-caja: rgba(255, 255, 255, 0.05);
+      --sombra: rgba(0, 0, 0, 0.5);
+      --color-enlace: #00ffcc;
+      --hover-enlace: #ffffff;
+      --musica-bg: #00ffcc;
+      --musica-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fondo: linear-gradient(to bottom right, #0a0f13, #141c25, #1f2c37);
+        --texto: white;
+        --descripcion: #cccccc;
+        --fondo-caja: rgba(255, 255, 255, 0.05);
+        --sombra: rgba(0, 0, 0, 0.5);
+        --color-enlace: #00ffcc;
+        --hover-enlace: #ffffff;
+        --musica-bg: #00ffcc;
+        --musica-color: #000;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      text-align: center;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    header {
+      padding: 40px 20px;
+    }
+
+    header img {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 10px 0;
+    }
+
+    p.descripcion {
+      font-size: 1.2em;
+      color: var(--descripcion);
+      margin-bottom: 50px;
+    }
+
+    section.agradecimiento {
+      background-color: var(--fondo-caja);
+      padding: 40px 20px;
+      margin: 0 auto 40px;
+      max-width: 800px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px var(--sombra);
+    }
+
+    .agradecimiento img {
+      max-width: 200px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--sombra);
+    }
+
+    a.enlace {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--color-enlace);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a.enlace:hover {
+      color: var(--hover-enlace);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaaaaa;
+    }
+
+    /* Música */
+    #player { display: none; }
+
+    #musica-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      font-size: 1em;
+      background: var(--musica-bg);
+      color: var(--musica-color);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,255,204,0.5);
+      transition: background 0.3s ease;
+    }
+
+    #musica-btn:hover {
+      background: #00ddb3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="energia-fuerza.png" alt="Logo Energía y Fuerza">
+    <h1>Energy and Strength</h1>
+    <p class="descripcion">Energy that resolves. Strength that protects.</p>
+  </header>
+  <!-- Added section about what we offer -->
+ <section class="agradecimiento">
+  <h2>¿What we offer?</h2>
+  <p>
+    En <strong>Energy and Strength</strong> We offer essential products for your home, office, or project. Our catalog combines functionality, affordability, and style.
+</p>
+
+  <ul style="text-align: left; max-width: 600px; margin: auto; margin-top: 20px;">
+    <li>🔌 <strong>Electric extensions</strong>: reliable, safe and of different lengths.</li>
+    <li>💡 <strong>table lamps</strong>: perfect for stylishly illuminating desks and special corners.</li>
+    <li>🏮 <strong>Pendant lamps</strong>: decorative and practical for indoor environments.</li>
+    <li>🧰 <strong>Cables</strong>: resistant and adaptable for various electrical uses.</li>
+  </ul>
+  </p>
+</section>
+  </ul>
+  <p style="margin-top: 20px; font-style: italic; color: var(--descripcion);">
+    This site is for informational purposes only. We do not conduct online sales.
+  </p>
+    </p>
+  </section>
+
+  <!-- Sección original de agradecimiento -->
+  <section class="agradecimiento">
+    <p>
+      With deep gratitude, we honor the <strong>Dr. Carlos Federico Mora National Experimental Institute of Basic Education</strong>,
+builder of minds and hearts, for instilling in us knowledge, values, and tools that will flourish throughout our lives.
+</p>
+    <img src="instituto.png" alt="Logo del Instituto Dr. Carlos Federico Mora">
+    <br>
+    <a class="enlace" href="https://www.facebook.com/p/Instituto-Experimental-Carlos-Federico-Mora-100070146843165/?locale=es_LA" target="_blank">
+      Visit the Institute's official website
+    </a>
+  </section>
+
+  <footer>
+   &copy; 2025 Energy and Strength. All rights reserved.
+  </footer>
+
+  <!-- Botón para activar música -->
+  <button id="musica-btn" onclick="iniciarMusica()">▶️ Start Music</button>
+  <div id="player"></div>
+
+  <script>
+    let reproductor;
+
+    function onYouTubeIframeAPIReady() {
+      reproductor = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'N_yuPf1ITjE',
+        playerVars: {
+          autoplay: 1,
+          loop: 1,
+          playlist: 'N_yuPf1ITjE',
+          controls: 0,
+          modestbranding: 1
+        },
+        events: {
+          'onReady': (event) => event.target.playVideo()
+        }
+      });
+    }
+
+    function iniciarMusica() {
+      if (!window.YT) {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+      } else {
+        onYouTubeIframeAPIReady();
+      }
+    }
+  </script>
+
+</body>
+</html>
